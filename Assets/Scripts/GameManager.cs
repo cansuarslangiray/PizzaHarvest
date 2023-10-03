@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
@@ -8,11 +9,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] animalsPrefabs;
     private float _leftBound = -20f;
     private float _rightBound = 20f;
-    private float _spawnInterval = 3f;
+    private float _spawnInterval = 4f;
     private float _startDelay = 2;
     private float _topBound = 15f;
     private float _downBound = 0;
     public static float Score=0;
+    [SerializeField] private Text scoreText;
 
 
 
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Score " + Score);
+        scoreText.text = Score.ToString();
     }
 
     void SpawnRandomAnimal()

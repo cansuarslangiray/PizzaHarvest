@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6394553998314543715}
   m_Layer: 0
   m_Name: Food_Pizza
-  m_TagString: Untagged
+  m_TagString: Pizza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5ac33a179fc2648972f2853f67cb37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 100000, guid: f3f69bcf5a1514c458ed5c9b96f28e34, type: 3}
+  gainFood: 0
+  hunterBar: {fileID: 4191439786808526424, guid: 7e53b3424b2ef1d46afec1d90080b804, type: 3}
 --- !u!65 &2810834809005505765
 BoxCollider:
   m_ObjectHideFlags: 0

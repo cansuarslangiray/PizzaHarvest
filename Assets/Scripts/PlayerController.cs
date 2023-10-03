@@ -11,22 +11,23 @@ public class PlayerController : MonoBehaviour
     private float xRange = 10f;
     private float zRange = 20f;
     public GameObject pizzaPrefabs;
-    public int Score ;
+    public int Score;
     public int hearth = 3;
-    
+
     void Start()
     {
     }
 
-   
+
     void Update()
     {
-      Movement();
-      if (Input.GetKeyDown(KeyCode.Space))
-      {
-          Instantiate(pizzaPrefabs, transform.position, pizzaPrefabs.transform.rotation);
-      }
-      Debug.Log(Score);
+        Movement();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(pizzaPrefabs, transform.position, pizzaPrefabs.transform.rotation);
+        }
+
+        Debug.Log(Score);
     }
 
     void Movement()
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
+
         if (transform.position.z < -zRange)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zRange);
@@ -54,15 +56,18 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
         transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        hearth--;
-        if (hearth == 0)
+        if (other.gameObject.tag.Equals("Obstacle"))
         {
-            Debug.Log("GAMEEE OVERRR!!!!");
+            hearth--;
+            Debug.Log("hearth: " + hearth);
+            if (hearth == 0)
+            {
+                Debug.Log("GAMEEE OVERRR!!!!");
+            }
         }
     }
 }
