@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class DetectCollision : MonoBehaviour
 {
-    public float gainFood;
     public float damage;
 
     public GameObject hunterBar;
@@ -21,6 +20,9 @@ public class DetectCollision : MonoBehaviour
         {
             var bar = Instantiate(hunterBar, transform.position, Quaternion.identity);
             hunterBarImg = bar.GetComponent<HunterBar>();
+            Debug.Log(hunterBarImg.name);
+            GetComponent<DestoyOutOfBounds>().hunterBar = bar;
+
         }
     }
 
@@ -37,21 +39,20 @@ public class DetectCollision : MonoBehaviour
     {
         if (!other.gameObject.tag.Equals("Player"))
         {
-            if (gameObject.tag.Equals("Pizza"))
+            if (other.tag.Equals("Pizza"))
             {
-                Destroy(gameObject);
+                Destroy(other.gameObject);
                 if (hunterBar.gameObject != null)
                 {
-                    var slider = hunterBarImg.transform.GetChild(0).GetComponent<Slider>();
-                    if ( slider.value<=0)
-                    {
-                        hunterBarImg.SetDamage(damage);
-                    }
-                    else if (slider.value >=3)
+                    Debug.Log(hunterBarImg.name);
+                    var slider = hunterBarImg.slide;
+                    hunterBarImg.SetDamage(damage);
+                    
+                    if (slider.value >=3)
                     {
                         GameManager.Score += 1f;
-                        // Destroy(hunterBarImg.GetComponent<GameObject>());
-                        Destroy(other.gameObject);
+                        Destroy(hunterBarImg.gameObject);
+                        Destroy(gameObject);
                     }
                 }
             }

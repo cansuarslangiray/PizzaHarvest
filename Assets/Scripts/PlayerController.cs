@@ -14,11 +14,7 @@ public class PlayerController : MonoBehaviour
     public int Score;
     public int hearth = 3;
 
-    void Start()
-    {
-    }
-
-
+  
     void Update()
     {
         Movement();

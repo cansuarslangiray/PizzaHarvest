@@ -53,6 +53,7 @@ MonoBehaviour:
   canvas: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
   camera: {fileID: 0}
+  slide: {fileID: 0}
 --- !u!114 &9104155482516201670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,14 +94,14 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 4318515894846674710}
   m_FillRect: {fileID: 6956232054952596869}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 2.73
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

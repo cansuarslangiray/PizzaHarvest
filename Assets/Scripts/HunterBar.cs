@@ -9,7 +9,8 @@ public class HunterBar : MonoBehaviour
     public GameObject canvas;
     public Vector3 position;
     public Camera camera;
-    private Slider slide;
+    public Slider slide;
+
 
     private void Start()
     {
@@ -20,20 +21,30 @@ public class HunterBar : MonoBehaviour
         slide.value = 0;
     }
 
+
     public void SetPositionFill(Vector3 pos)
     {
         position = pos;
-
     }
 
     public void SetDamage(float fill)
     {
         slide.value += fill;
-
     }
 
     private void Update()
     {
         transform.position = camera.WorldToScreenPoint(position);
     }
+
+    private void DestoyHunterBar()
+    {
+        float _topBound = 30f;
+        float _rightBound = 24f;
+        float _downBound = -10f;
+        Vector3 point = new Vector3();
+        point = camera.ScreenToWorldPoint(new Vector3(_rightBound, _topBound, camera.nearClipPlane));
+    }
+
+    
 }
